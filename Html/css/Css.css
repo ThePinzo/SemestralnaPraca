@@ -1,0 +1,39 @@
+.navbar-brand img {
+    width: 95%;
+    height: 95%;
+}
+
+.bg-dark {
+    background-color: green !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: black;
+}
+
+ul li:hover {
+    background-color: brown;
+}
+
+header {
+    font-size: 30px;
+    color: black;
+
+}
+.col-12{
+    color: black;
+}
+
+footer {
+    padding: 16px;
+    color: white;
+    text-align: center;
+}
+
+.col-12 {
+    background: white;
+}
+.jumbotron
+{
+    color: white;
+}
