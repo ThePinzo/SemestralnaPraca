@@ -26,7 +26,7 @@
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="Uvod.html"><img src="img/logo.png" alt="Uvod"></a>
+    <a class="navbar-brand" href="Uvod.php"><img src="img/logo.png" alt="Uvod"></a>
 
     <!-- Toggler/collapsible Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -36,13 +36,13 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="Uvod.html">Domov</a>
+                <a class="nav-link" href="Uvod.php">Domov</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Jedle.html">Jedle</a>
+                <a class="nav-link" href="Jedle.php">Jedle</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Jedovate.html">Jedovate</a>
+                <a class="nav-link" href="Jedovate.php">Jedovate</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -50,8 +50,8 @@
                     Galeria
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="Jedle_img.html">Jedle huby</a>
-                    <a class="dropdown-item" href="Jedovate_img.html">Jedovate huby</a>
+                    <a class="dropdown-item" href="Jedle_img.php">Jedle huby</a>
+                    <a class="dropdown-item" href="Jedovate_img.php">Jedovate huby</a>
                 </div>
             </li>
 

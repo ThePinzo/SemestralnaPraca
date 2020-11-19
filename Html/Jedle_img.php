@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
-    <title>Jedovate huby</title>
+    <title>Jedle huby</title>
 </head>
 <body>
 Work in progress :)
 <br>
 
-<a href="Uvod.html">Domov</a>
+<a href="Uvod.php">Domov</a>
 </body>
 </html>
