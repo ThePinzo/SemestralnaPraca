@@ -7,7 +7,7 @@ $clanky = $ulozisko->getVsetko();
 ?>
 <html lang="sk">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="windows-1250">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
     <title>Huby</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -57,6 +57,9 @@ $clanky = $ulozisko->getVsetko();
             <li class="nav-item">
                 <a class="nav-link" href="Jedovate.php">Jedovate</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PridanieClanku.php">Pridaj článok</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
@@ -67,6 +70,7 @@ $clanky = $ulozisko->getVsetko();
                     <a class="dropdown-item" href="Jedovate_img.php">Jedovate huby</a>
                 </div>
             </li>
+
         </ul>
 
     </div>
@@ -85,7 +89,6 @@ $clanky = $ulozisko->getVsetko();
 
             <?php foreach ($clanky as $clanok) { ?>
                 <header><?= $clanok->getTitul() ?></header>
-                <img src="<?=$clanok->getThumbnail()?>" alt="Huby" style="width: 100px" >
                 <p><?= $clanok->getText() ?></p>
             <?php } ?>
             <hr>

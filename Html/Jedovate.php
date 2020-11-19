@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<?php
+require "Ulozisko.php";
+$ulozisko = new Ulozisko();
+$clanky = $ulozisko->getJedovate();
+
+?>
+<html lang="sk">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="windows-1250">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
     <title>Jedovate huby</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -44,6 +50,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="Jedovate.php">Jedovate</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PridanieClanku.php">Pridaj článok</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
@@ -62,47 +71,10 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <header>Lorem Ipsum</header>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac lorem tellus. Integer lobortis ipsum
-            id augue porttitor, ac laoreet tortor finibus. Phasellus accumsan laoreet consectetur. Nulla porttitor non
-            nibh non commodo. Sed non commodo purus. Aenean non felis ornare, porttitor elit sit amet, lobortis dolor.
-            Etiam vel facilisis eros. Quisque eget mi aliquet, vehicula eros id, vehicula sem. Morbi fringilla lacus sit
-            amet tortor lacinia, et scelerisque augue commodo. Ut vitae laoreet metus. Pellentesque non consectetur
-            mauris. Ut fringilla varius vulputate. Ut pharetra urna libero. Donec pulvinar vulputate sapien, tempus
-            lobortis mi aliquam at.
-            <hr>
-        </div>
-        <div class="col-12">
-            <header>Lorem Ipsum</header>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac lorem tellus. Integer lobortis ipsum
-            id augue porttitor, ac laoreet tortor finibus. Phasellus accumsan laoreet consectetur. Nulla porttitor non
-            nibh non commodo. Sed non commodo purus. Aenean non felis ornare, porttitor elit sit amet, lobortis dolor.
-            Etiam vel facilisis eros. Quisque eget mi aliquet, vehicula eros id, vehicula sem. Morbi fringilla lacus sit
-            amet tortor lacinia, et scelerisque augue commodo. Ut vitae laoreet metus. Pellentesque non consectetur
-            mauris. Ut fringilla varius vulputate. Ut pharetra urna libero. Donec pulvinar vulputate sapien, tempus
-            lobortis mi aliquam at.
-            <hr>
-        </div>
-        <div class="col-12">
-            <header>Lorem Ipsum</header>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac lorem tellus. Integer lobortis ipsum
-            id augue porttitor, ac laoreet tortor finibus. Phasellus accumsan laoreet consectetur. Nulla porttitor non
-            nibh non commodo. Sed non commodo purus. Aenean non felis ornare, porttitor elit sit amet, lobortis dolor.
-            Etiam vel facilisis eros. Quisque eget mi aliquet, vehicula eros id, vehicula sem. Morbi fringilla lacus sit
-            amet tortor lacinia, et scelerisque augue commodo. Ut vitae laoreet metus. Pellentesque non consectetur
-            mauris. Ut fringilla varius vulputate. Ut pharetra urna libero. Donec pulvinar vulputate sapien, tempus
-            lobortis mi aliquam at.
-            <hr>
-        </div>
-        <div class="col-12">
-            <header>Lorem Ipsum</header>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac lorem tellus. Integer lobortis ipsum
-            id augue porttitor, ac laoreet tortor finibus. Phasellus accumsan laoreet consectetur. Nulla porttitor non
-            nibh non commodo. Sed non commodo purus. Aenean non felis ornare, porttitor elit sit amet, lobortis dolor.
-            Etiam vel facilisis eros. Quisque eget mi aliquet, vehicula eros id, vehicula sem. Morbi fringilla lacus sit
-            amet tortor lacinia, et scelerisque augue commodo. Ut vitae laoreet metus. Pellentesque non consectetur
-            mauris. Ut fringilla varius vulputate. Ut pharetra urna libero. Donec pulvinar vulputate sapien, tempus
-            lobortis mi aliquam at.
+            <?php foreach ($clanky as $clanok) { ?>
+                <header><?= $clanok->getTitul() ?></header>
+                <p><?= $clanok->getText() ?></p>
+            <?php } ?>
             <hr>
         </div>
     </div>

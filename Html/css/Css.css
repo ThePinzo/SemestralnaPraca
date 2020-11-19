@@ -38,3 +38,9 @@ footer {
 .jumbotron {
     color: white;
 }
+
+label{
+    color: black;
+    position: center;
+}
+

@@ -5,17 +5,17 @@ class Clanok
 {
     private $titul;
     private $text;
-    private $thumbnail;
+
+
 
     /**
      * Clanok constructor.
-     * @param $thumbnail
+
      * @param $titul
      * @param $text
      */
-    public function __construct($thumbnail,$titul, $text)
+    public function __construct($titul, $text)
     {
-        $this->thumbnail = $thumbnail;
         $this->titul = $titul;
         $this->text = $text;
     }
@@ -52,21 +52,6 @@ class Clanok
         $this->text = $text;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getThumbnail()
-    {
-        return $this->thumbnail;
-    }
-
-    /**
-     * @param mixed $thumbnail
-     */
-    public function setThumbnail($thumbnail): void
-    {
-        $this->thumbnail = $thumbnail;
-    }
 
 
 
