@@ -5,7 +5,7 @@ $ulozisko = new Ulozisko();
 if (isset($_POST['title'])) {
     $ulozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
 }
-
+$clanky = $ulozisko->getVsetko();
 ?>
 <html lang="sk">
 <head>
@@ -72,12 +72,12 @@ if (isset($_POST['title'])) {
 
 <form method="post">
     <label>Titulok</label><br>
-    <input type="text" name="Titul" required><br>
+    <input type="text" name="title" required><br>
     <label>Text článku</label><br>
-    <input type="text" name="Text" required><br>
+    <input type="text" name="text" required><br>
 
-    <label for="jedle">Vyber druh huby:</label><br>
-    <select id="jedle" name="jedle">
+    <label for="jedla">Vyber druh huby:</label><br>
+    <select id="jedla" name="jedla">
         <option value="jedla">Jedlé</option>
         <option value="jedovata">Jedovaté</option>
     </select><br>
