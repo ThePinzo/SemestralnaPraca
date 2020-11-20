@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-require  "AUlozisko.php";
+require "AUlozisko.php";
 require "CSVUlozisko.php";
 require "DBUlozisko.php";
 $CsvUlozisko = new CSVUlozisko();
@@ -9,7 +9,7 @@ if (isset($_POST['title'])) {
     $CsvUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
 }
 
-if(isset($_POST['title'])){
+if (isset($_POST['title'])) {
     $DbUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
 }
 
@@ -95,7 +95,8 @@ if(isset($_POST['title'])){
         <option value="jedla">Jedlé</option>
         <option value="jedovata">Jedovaté</option>
     </select><br>
-    <input type="submit" value="Odoslať"><br>
+    <a type="submit" class="btn btn-secondary btn-sm">Odoslať</a>
+    <br>
 
 </form>
 <footer>
