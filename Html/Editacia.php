@@ -29,17 +29,12 @@ $clanky = $ulozisko->getVsetko();
             background-size: cover;
         }
 
-        .jumbotron {
-            background-image: url("img/background.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
     </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="#"><img src="img/logo.png" alt="Uvod"></a>
+    <a class="navbar-brand" href="Uvod.php"><img src="img/logo.png" alt="Uvod"></a>
 
     <!-- Toggler/collapsible Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -76,15 +71,9 @@ $clanky = $ulozisko->getVsetko();
             </li>
         </ul>
 
+
     </div>
 </nav>
-
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="display-1">Vitajte na mojej stranke</h1>
-        <p>Toto je moja prva stranka porozhliadni sa...</p>
-    </div>
-</div>
 
 <div class="container">
     <div class="row">

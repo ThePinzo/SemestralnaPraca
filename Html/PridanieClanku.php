@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <?php
-require "Ulozisko.php";
-$ulozisko = new Ulozisko();
+require  "AUlozisko.php";
+require "CSVUlozisko.php";
+require "DBUlozisko.php";
+$CsvUlozisko = new CSVUlozisko();
+$DbUlozisko = new DBUlozisko();
 if (isset($_POST['title'])) {
-    $ulozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
+    $CsvUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
 }
-$clanky = $ulozisko->getVsetko();
+
+if(isset($_POST['title'])){
+    $DbUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
+}
+
 ?>
 <html lang="sk">
 <head>
@@ -55,6 +62,9 @@ $clanky = $ulozisko->getVsetko();
             <li class="nav-item">
                 <a class="nav-link" href="PridanieClanku.php">Pridaj článok</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Editacia.php">Editovať</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
@@ -65,16 +75,20 @@ $clanky = $ulozisko->getVsetko();
                     <a class="dropdown-item" href="Jedovate_img.php">Jedovate huby</a>
                 </div>
             </li>
-
         </ul>
+
     </div>
 </nav>
 
 <form method="post">
     <label>Titulok</label><br>
-    <input type="text" name="title" required><br>
+    <label>
+        <input type="text" name="title" required>
+    </label><br>
     <label>Text článku</label><br>
-    <input type="text" name="text" required><br>
+    <label>
+        <input type="text" name="text" required>
+    </label><br>
 
     <label for="jedla">Vyber druh huby:</label><br>
     <select id="jedla" name="jedla">

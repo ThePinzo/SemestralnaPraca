@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 
 <?php
-require "Ulozisko.php";
-$ulozisko = new Ulozisko();
-$clanky = $ulozisko->getJedle();
+require  "AUlozisko.php";
+require "CSVUlozisko.php";
+$ulozisko = new CSVUlozisko();
+$clanky = $ulozisko->getJedle("jedla");
 
 ?>
 <html lang="sk">
@@ -53,6 +54,9 @@ $clanky = $ulozisko->getJedle();
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="PridanieClanku.php">Pridaj článok</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Editacia.php">Editovať</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"

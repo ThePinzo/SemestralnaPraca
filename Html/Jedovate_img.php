@@ -1,14 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="windows-1250">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
-    <title>Jedovate huby</title>
+    <title>Huby</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/Css.css">
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-image: url("img/Huby.jpg");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+
+        .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 4px;
+        }
+
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+    </style>
 </head>
 <body>
-Work in progress :)
-<br>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="Uvod.php"><img src="img/logo.png" alt="Uvod"></a>
 
-<a href="Uvod.php">Domov</a>
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="Uvod.php">Domov</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Jedle.php">Jedle</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Jedovate.php">Jedovate</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="PridanieClanku.php">Pridaj článok</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Editacia.php">Editovať</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    Galeria
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="Jedle_img.php">Jedle huby</a>
+                    <a class="dropdown-item" href="Jedovate_img.php">Jedovate huby</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+
+<div class="row">
+    <div class="column">
+        <img src="img/Huby.jpg" style="width:100%" alt="Huby">
+        <img src="img/muchotravka.jpg" style="width:100%" alt="muchotravka">
+    </div>
+    <div class="column">
+        <img src="img/muchotravka.jpg" style="width:100%" alt="muchotravka">
+    </div>
+</div>
+<footer>
+    Stefan Culik 5YZI36
+</footer>
 </body>
 </html>

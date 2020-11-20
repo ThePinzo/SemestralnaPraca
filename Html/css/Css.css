@@ -39,8 +39,11 @@ footer {
     color: white;
 }
 
-label{
-    color: black;
-    position: center;
-}
 
+form {
+    margin: 0 auto;
+    width: 250px;
+    color: black;
+    text-align: center;
+    margin-top: 120px;
+}
