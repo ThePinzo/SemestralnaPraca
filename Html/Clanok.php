@@ -5,19 +5,20 @@ class Clanok
 {
     private $titul;
     private $text;
-
+    private $id;
 
 
     /**
      * Clanok constructor.
-
      * @param $titul
      * @param $text
+     * @param $id
      */
     public function __construct($titul, $text)
     {
         $this->titul = $titul;
         $this->text = $text;
+
     }
 
     /**
@@ -52,6 +53,13 @@ class Clanok
         $this->text = $text;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
 

@@ -83,11 +83,11 @@ if(isset($_POST['title'])){
 <form method="post">
     <label>Titulok</label><br>
     <label>
-        <input type="text" name="title" required>
+        <input type="text" name="title" placeholder="Titul" required>
     </label><br>
     <label>Text článku</label><br>
     <label>
-        <input type="text" name="text" required>
+        <input type="text" name="text" placeholder="Text" required>
     </label><br>
 
     <label for="jedla">Vyber druh huby:</label><br>

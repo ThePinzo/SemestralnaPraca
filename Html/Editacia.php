@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <?php
-require  "AUlozisko.php";
+require "AUlozisko.php";
+require "DBUlozisko.php";
 require "CSVUlozisko.php";
-$ulozisko = new CSVUlozisko();
+
+$ulozisko = new DBUlozisko();
 $clanky = $ulozisko->getVsetko();
 
 ?>
@@ -78,14 +80,16 @@ $clanky = $ulozisko->getVsetko();
 <div class="container">
     <div class="row">
         <div class="col-12">
-
             <?php foreach ($clanky as $clanok) { ?>
                 <header><?= $clanok->getTitul() ?></header>
                 <p><?= $clanok->getText() ?></p>
+                <a href="#" class="btn btn-primary btn-small">Edit</a>
+                <a href="<?= ?>" class="btn btn-primary btn-danger btn-small">Delete</a>
+
             <?php } ?>
+
             <hr>
         </div>
-
     </div>
 </div>
 
