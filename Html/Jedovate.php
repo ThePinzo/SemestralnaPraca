@@ -2,7 +2,8 @@
 <?php
 require  "AUlozisko.php";
 require "CSVUlozisko.php";
-$ulozisko = new CSVUlozisko();
+require "DBUlozisko.php";
+$ulozisko = new DBUlozisko();
 $clanky = $ulozisko->getJedle("jedovata");
 
 ?>
@@ -46,10 +47,10 @@ $clanky = $ulozisko->getJedle("jedovata");
                 <a class="nav-link" href="Uvod.php">Domov</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Jedle.php">Jedle</a>
+                <a class="nav-link" href="Jedle.php">Jedlé</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Jedovate.php">Jedovate</a>
+                <a class="nav-link" href="Jedovate.php">Jedovaté</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="PridanieClanku.php">Pridaj článok</a>
@@ -60,17 +61,17 @@ $clanky = $ulozisko->getJedle("jedovata");
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    Galeria
+                    Galéria
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="Jedle_img.php">Jedle huby</a>
-                    <a class="dropdown-item" href="Jedovate_img.php">Jedovate huby</a>
+                    <a class="dropdown-item" href="Jedle_img.php">Jedlé huby</a>
+                    <a class="dropdown-item" href="Jedovate_img.php">Jedovaté huby</a>
                 </div>
             </li>
         </ul>
-
     </div>
 </nav>
+
 
 <div class="container">
     <div class="row">

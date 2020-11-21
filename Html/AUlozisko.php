@@ -1,5 +1,6 @@
 <?php
 
+require "Clanok.php";
 
 abstract class AUlozisko
 {

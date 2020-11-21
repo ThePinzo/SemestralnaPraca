@@ -41,9 +41,9 @@ footer {
 
 
 form {
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     width: 250px;
     color: black;
-    text-align: center;
-    margin-top: 120px;
 }
+
+

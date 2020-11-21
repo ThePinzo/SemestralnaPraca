@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-
 <?php
-require  "AUlozisko.php";
+require "AUlozisko.php";
 require "CSVUlozisko.php";
 require "DBUlozisko.php";
-$ulozisko = new DBUlozisko();
-$clanky = $ulozisko->getJedle("jedla");
+$CsvUlozisko = new CSVUlozisko();
+$DbUlozisko = new DBUlozisko();
+
 
 ?>
 <html lang="sk">
 <head>
-    <meta charset="windows-1250">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
-    <title>Jedle huby</title>
+    <title>Jedovate huby</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -73,20 +73,32 @@ $clanky = $ulozisko->getJedle("jedla");
     </div>
 </nav>
 
+
+
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <?php foreach ($clanky as $clanok) { ?>
-                <header><?= $clanok->getTitul() ?></header>
-                <p><?= $clanok->getText() ?></p>
-            <?php } ?>
-            <hr>
-        </div>
+            <form method="post">
+                <label>Titulok</label><br>
+                <label>
+                    <input class="titul" type="text" name="title" placeholder="Titul" required>
+                </label><br>
+                <label>Text článku</label><br>
+                <label>
+                    <input class="titul" type="text" name="text" placeholder="Text" required>
+                </label><br>
+                <label class="jedla" for="jedla">Vyber druh huby:</label><br>
+                <select id="jedla" name="jedla">
+                    <option value="jedla">Jedlé</option>
+                    <option value="jedovata">Jedovaté</option>
+                </select><br>
+                <input type="submit" value="Odoslať"><br>
+                <br>
 
+            </form>
+        </div>
     </div>
 </div>
-
-
 <footer>
     Stefan Culik 5YZI36
 </footer>

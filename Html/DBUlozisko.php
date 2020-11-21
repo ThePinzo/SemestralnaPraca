@@ -27,6 +27,7 @@ class DBUlozisko extends AUlozisko
         $r = $this->pdo->query("SELECT * FROM clanky");
         while ($row = $r->fetch()) {
             $clanok = new Clanok($row['title'], $row['text']);
+            $clanok->setId($row['id']);
             $res[] = $clanok;
         }
         return $res;
@@ -38,11 +39,32 @@ class DBUlozisko extends AUlozisko
         $stmt->execute([$clanok->getTitul(), $clanok->getText(), $jedla]);
     }
 
-    function vymazPrispevok(Clanok $clanok): void
+    function vymazPrispevok($id): void
     {
-        $id = $clanok->getId();
-        $stmt = $this->pdo->prepare("DELETE * FROM clanky where id equals $id");
-        //$stmt->execute([$id]);
+        $stmt = $this->pdo->prepare("DELETE FROM clanky where id = ?");
+        $stmt->execute([$id]);
+
+    }
+
+    public function getJedle($jedly): array
+    {
+
+        $res = [];
+        $r = $this->pdo->query("SELECT * FROM clanky");
+        while ($row = $r->fetch()) {
+            if ($row['jedla'] == $jedly) {
+                $clanok = new Clanok($row['title'], $row['text']);
+                $res[] = $clanok;
+            }
+        }
+        return $res;
+    }
+
+    public function upravClanok($id): void
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM clanky WHERE id= ?");
+        $stmt->execute([$id]);
+
 
     }
 }

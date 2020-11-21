@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <?php
 require "AUlozisko.php";
-require "CSVUlozisko.php";
+//require "CSVUlozisko.php";
 require "DBUlozisko.php";
-$CsvUlozisko = new CSVUlozisko();
+//$CsvUlozisko = new CSVUlozisko();
 $DbUlozisko = new DBUlozisko();
-if (isset($_POST['title'])) {
-    $CsvUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
-}
+
 
 if (isset($_POST['title'])) {
     $DbUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
@@ -18,7 +16,7 @@ if (isset($_POST['title'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
-    <title>Jedovate huby</title>
+    <title>Pridaj článok</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -54,10 +52,10 @@ if (isset($_POST['title'])) {
                 <a class="nav-link" href="Uvod.php">Domov</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Jedle.php">Jedle</a>
+                <a class="nav-link" href="Jedle.php">Jedlé</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Jedovate.php">Jedovate</a>
+                <a class="nav-link" href="Jedovate.php">Jedovaté</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="PridanieClanku.php">Pridaj článok</a>
@@ -68,37 +66,44 @@ if (isset($_POST['title'])) {
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    Galeria
+                    Galéria
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="Jedle_img.php">Jedle huby</a>
-                    <a class="dropdown-item" href="Jedovate_img.php">Jedovate huby</a>
+                    <a class="dropdown-item" href="Jedle_img.php">Jedlé huby</a>
+                    <a class="dropdown-item" href="Jedovate_img.php">Jedovaté huby</a>
                 </div>
             </li>
         </ul>
-
     </div>
 </nav>
 
-<form method="post">
-    <label>Titulok</label><br>
-    <label>
-        <input type="text" name="title" placeholder="Titul" required>
-    </label><br>
-    <label>Text článku</label><br>
-    <label>
-        <input type="text" name="text" placeholder="Text" required>
-    </label><br>
 
-    <label for="jedla">Vyber druh huby:</label><br>
-    <select id="jedla" name="jedla">
-        <option value="jedla">Jedlé</option>
-        <option value="jedovata">Jedovaté</option>
-    </select><br>
-    <a type="submit" class="btn btn-secondary btn-sm">Odoslať</a>
-    <br>
 
-</form>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                <label>Titulok</label><br>
+                <label>
+                    <input class="titul" type="text" name="title" placeholder="Titul" required>
+                </label><br>
+                <label>Text článku</label><br>
+                <label>
+                    <input class="titul" type="text" name="text" placeholder="Text" required>
+                </label><br>
+                <label class="jedla" for="jedla">Vyber druh huby:</label><br>
+                <select id="jedla" name="jedla">
+                    <option value="jedla">Jedlé</option>
+                    <option value="jedovata">Jedovaté</option>
+                </select><br>
+                <input type="submit" value="Odoslať"><br>
+                <br>
+
+            </form>
+        </div>
+    </div>
+</div>
 <footer>
     Stefan Culik 5YZI36
 </footer>

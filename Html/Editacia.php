@@ -7,12 +7,22 @@ require "CSVUlozisko.php";
 $ulozisko = new DBUlozisko();
 $clanky = $ulozisko->getVsetko();
 
+
+if (isset($_GET['delete'])) {
+    $ulozisko->vymazPrispevok($_GET['delete']);
+}
+
+if (isset($_GET['edit'])) {
+    $ulozisko->upravClanok($_GET['edit']);
+}
+
+
 ?>
 <html lang="sk">
 <head>
     <meta charset="windows-1250">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
-    <title>Huby</title>
+    <title>Editovať</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -42,7 +52,6 @@ $clanky = $ulozisko->getVsetko();
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <!-- Links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
@@ -50,10 +59,10 @@ $clanky = $ulozisko->getVsetko();
                 <a class="nav-link" href="Uvod.php">Domov</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Jedle.php">Jedle</a>
+                <a class="nav-link" href="Jedle.php">Jedlé</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Jedovate.php">Jedovate</a>
+                <a class="nav-link" href="Jedovate.php">Jedovaté</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="PridanieClanku.php">Pridaj článok</a>
@@ -64,18 +73,17 @@ $clanky = $ulozisko->getVsetko();
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    Galeria
+                    Galéria
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="Jedle_img.php">Jedle huby</a>
-                    <a class="dropdown-item" href="Jedovate_img.php">Jedovate huby</a>
+                    <a class="dropdown-item" href="Jedle_img.php">Jedlé huby</a>
+                    <a class="dropdown-item" href="Jedovate_img.php">Jedovaté huby</a>
                 </div>
             </li>
         </ul>
-
-
     </div>
 </nav>
+
 
 <div class="container">
     <div class="row">
@@ -83,8 +91,9 @@ $clanky = $ulozisko->getVsetko();
             <?php foreach ($clanky as $clanok) { ?>
                 <header><?= $clanok->getTitul() ?></header>
                 <p><?= $clanok->getText() ?></p>
-                <a href="#" class="btn btn-primary btn-small">Edit</a>
-                <a href="<?= ?>" class="btn btn-primary btn-danger btn-small">Delete</a>
+                <a href="Editacia.php?edit=<?php echo $clanok->getId() ?>" class="btn btn-primary btn-small">Edit</a>
+                <a href="Editacia.php?delete=<?php echo $clanok->getId() ?>"
+                   class="btn btn-primary btn-danger btn-small">Delete</a>
 
             <?php } ?>
 
