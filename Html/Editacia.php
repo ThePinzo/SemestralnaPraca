@@ -6,17 +6,40 @@ require "CSVUlozisko.php";
 
 $ulozisko = new DBUlozisko();
 $clanky = $ulozisko->getVsetko();
-
+$pdo = new PDO("mysql:dbname=semestralna_praca; host=localhost", "root", "dtb456", [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+]);
+$title = '';
+$text = '';
+$jedla = '';
+$update = false;
+$id = 0;
+session_start();
 
 if (isset($_GET['delete'])) {
     $ulozisko->vymazPrispevok($_GET['delete']);
-    header("Location:?c=Editacia.php");
+    header("Location:Editacia.php");
+
 }
 
 if (isset($_GET['edit'])) {
-    $ulozisko->upravClanok($_GET['edit']);
+    $id = $_GET['edit'];
+    $update = true;
+    $stmt = $pdo->query("SELECT * FROM semestralna_praca.clanky WHERE id= $id");
+    $row = $stmt->fetch();
+    $title = $row['title'];
+    $text = $row['text'];
 }
 
+if (isset($_POST['update'])) {
+    $id = $_POST['id'];
+    $title = $_POST['title'];
+    $text = $_POST['text'];
+    $jedla = $_POST['jedla'];
+
+    $pdo->query("UPDATE semestralna_praca.clanky SET title='$title', text='$text', jedla='$jedla' where id=$id  ");
+    header("Location:Editacia.php");
+}
 
 
 ?>
@@ -91,13 +114,17 @@ if (isset($_GET['edit'])) {
     <div class="row">
         <div class="col-12">
             <form method="post">
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="form-group">
+
                     <label>Titulok</label><br>
-                    <input name="title" type="text" class="form-control" placeholder="Titul" required>
+                    <input name="title" type="text" class="form-control" value=" <?php echo $title; ?>"
+                           placeholder="Titul" required>
                 </div>
                 <div class="form-group">
                     <label>Text článku</label><br>
-                    <input name="text" type="text" class="form-control" placeholder="Text" required>
+                    <input name="text" type="text" class="form-control" value=" <?php echo $text; ?>" placeholder="Text"
+                           required>
                 </div>
                 <label class="jedla" for="jedla">Vyber druh huby:</label><br>
                 <select id="jedla" name="jedla">
@@ -105,7 +132,13 @@ if (isset($_GET['edit'])) {
                     <option value="jedovata">Jedovaté</option>
                 </select><br>
                 <br>
-                <input type="submit" value="Odoslať">
+                <?php
+                if ($update == true):
+                    ?>
+                    <button type="submit" class="btn btn-primary" name="update">Uložiť</button>
+                <?php else: ?>
+                    <button type="submit" class="btn btn-primary" name="save">Odoslať</button>
+                <?php endif; ?>
             </form>
         </div>
     </div>

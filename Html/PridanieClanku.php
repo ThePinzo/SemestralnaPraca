@@ -4,10 +4,20 @@ require "AUlozisko.php";
 require "DBUlozisko.php";
 $DbUlozisko = new DBUlozisko();
 
+//if(isset($_POST['title']) && $_POST['title'] != ''){
+//    echo "pepekek";
+//}
 
-if (isset($_POST['title'])) {
-    $DbUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
+
+$pattern = "/^\s{2,}$/";
+if ($_POST != null) {
+    if (preg_match($pattern, $_POST['title']) == 1 || $_POST['title'] == " ") {
+        echo "yoo";
+    } elseif (isset($_POST['title'])) {
+        $DbUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
+    }
 }
+
 
 ?>
 <html lang="sk">
@@ -94,7 +104,7 @@ if (isset($_POST['title'])) {
                     <option value="jedovata">Jedovaté</option>
                 </select><br>
                 <br>
-                <input type="submit" value="Odoslať">
+                <button type="submit" class="btn btn-primary" name="save">Odoslať</button>
             </form>
         </div>
     </div>

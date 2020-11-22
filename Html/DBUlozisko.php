@@ -62,8 +62,7 @@ class DBUlozisko extends AUlozisko
 
     public function upravClanok($id): void
     {
-        $stmt = $this->pdo->prepare("SELECT * FROM clanky WHERE id= ?");
-        $stmt->execute([$id]);
+
 
 
     }
