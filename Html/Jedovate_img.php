@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+require "DBObrazky.php";
+$DBObrazky = new DBObrazky();
+$obrazky = $DBObrazky->getJedle("jedovata");
+?>
 <html lang="sk">
 <head>
     <meta charset="windows-1250">
@@ -103,17 +108,15 @@
         </ul>
     </div>
 </nav>
-
-
 <div class="row">
     <div class="column">
-        <img src="img/Huby.jpg" style="width:100%" alt="Huby">
-        <img src="img/muchotravka.jpg" style="width:100%" alt="muchotravka">
-    </div>
-    <div class="column">
-        <img src="img/muchotravka.jpg" style="width:100%" alt="muchotravka">
+        <?php foreach ($obrazky as $obrazok) { ?>
+            <img src="<?php echo $obrazok->getCestaKObr() ?>" alt="">
+        <?php } ?>
     </div>
 </div>
+
+
 <footer>
     Stefan Culik 5YZI36
 </footer>

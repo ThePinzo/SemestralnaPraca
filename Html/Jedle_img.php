@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+require "DBObrazky.php";
+$DBObrazky = new DBObrazky();
+$obrazky = $DBObrazky->getJedle("jedla");
+?>
+
 <html lang="sk">
 <head>
     <meta charset="windows-1250">
@@ -64,7 +70,13 @@
         </ul>
     </div>
 </nav>
-
+<div class="row">
+    <div class="column">
+        <?php foreach ($obrazky as $obrazok) { ?>
+            <img src="<?php echo $obrazok->getCestaKObr()?>" alt="">
+        <?php } ?>
+    </div>
+</div>
 
 
 <footer>

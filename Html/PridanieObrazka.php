@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-
 <?php
-require  "AUlozisko.php";
-require "DBUlozisko.php";
-$ulozisko = new DBUlozisko();
-$clanky = $ulozisko->getJedle("jedla");
+require "DBObrazky.php";
 
+$DBObr = new DBObrazky();
+
+if(isset($_POST['cestaKObrazku'])){
+    $DBObr->vytvorObrazok($_POST['cestaKObrazku'], $_POST['jedla']);
+}
 ?>
 <html lang="sk">
 <head>
     <meta charset="windows-1250">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
-    <title>Jedle huby</title>
+    <title>Huby</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -29,6 +30,7 @@ $clanky = $ulozisko->getJedle("jedla");
             background-attachment: fixed;
             background-size: cover;
         }
+
     </style>
 </head>
 <body>
@@ -75,17 +77,19 @@ $clanky = $ulozisko->getJedle("jedla");
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <?php foreach ($clanky as $clanok) { ?>
-                <header><?= $clanok->getTitul() ?></header>
-                <p><?= $clanok->getText() ?></p>
-            <?php } ?>
-            <hr>
-        </div>
+            <form action="PridanieObrazka.php">
+                Vyberte obrázky pre nahratie
+                <input type="file" id="myFile" name="cestaKObrazku">
+                <select id="jedla" name="jedla">>
+                    <option value="jedla">Jedlé</option>
+                    <option value="jedovata">Jedovaté</option>
+                </select><br>
 
+                <input type="submit">
+            </form>
+        </div>
     </div>
 </div>
-
-
 <footer>
     Stefan Culik 5YZI36
 </footer>

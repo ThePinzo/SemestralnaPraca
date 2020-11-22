@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <?php
 require "AUlozisko.php";
-//require "CSVUlozisko.php";
 require "DBUlozisko.php";
-//$CsvUlozisko = new CSVUlozisko();
 $DbUlozisko = new DBUlozisko();
 
 
@@ -78,32 +76,31 @@ if (isset($_POST['title'])) {
 </nav>
 
 
-
-
 <div class="container">
     <div class="row">
         <div class="col-12">
             <form method="post">
-                <label>Titulok</label><br>
-                <label>
-                    <input class="titul" type="text" name="title" placeholder="Titul" required>
-                </label><br>
-                <label>Text článku</label><br>
-                <label>
-                    <input class="titul" type="text" name="text" placeholder="Text" required>
-                </label><br>
+                <div class="form-group">
+                    <label>Titulok</label><br>
+                    <input name="title" type="text" class="form-control" placeholder="Titul" required>
+                </div>
+                <div class="form-group">
+                    <label>Text článku</label><br>
+                    <input name="text" type="text" class="form-control" placeholder="Text" required>
+                </div>
                 <label class="jedla" for="jedla">Vyber druh huby:</label><br>
                 <select id="jedla" name="jedla">
                     <option value="jedla">Jedlé</option>
                     <option value="jedovata">Jedovaté</option>
                 </select><br>
-                <input type="submit" value="Odoslať"><br>
                 <br>
-
+                <input type="submit" value="Odoslať">
             </form>
         </div>
     </div>
 </div>
+
+
 <footer>
     Stefan Culik 5YZI36
 </footer>

@@ -1,5 +1,6 @@
 <?php
 
+require "Obrazok.php";
 
 class DBObrazky
 {
@@ -21,29 +22,29 @@ class DBObrazky
         ]);
     }
 
-    function NacitajJedle()
+    public function getJedle($jedly): array
     {
-        $vysledok = [];
-        $prem = $this->pdo->query("SELECT * FROM semestralna_praca.obrazky WHERE jedly is 'jedla'");
-        foreach ($prem as $item) {
-            $vysledok[] = new Jedly($item['id_obr']);
+        $res = [];
+        $r = $this->pdo->query("SELECT * from semestralna_praca.obrazky");
+        while ($row = $r->fetch()) {
+            if ($row['jedly'] == $jedly) {
+                $obrazok = new Obrazok($row['filename']);
+                $res[] = $obrazok;
+            }
         }
-        return $vysledok;
+        return $res;
     }
 
-    function NacitajJedovate()
+    public function vytvorObrazok($cestaKObrazku, $jedla): void
     {
-        $jedovate = [];
-        $prem = $this->pdo->query("SELECT * FROM semestralna_praca.obrazky WHERE jedly is 'jedovata'");
-        foreach ($prem as $item) {
-            $jedovate[] = new Jedovaty($item['id_obr']);
-        }
-        return $jedovate;
+        $obrazok = new Obrazok($cestaKObrazku);
+        $this->Uloz($obrazok, $jedla);
 
     }
 
-    function Uloz()
+    function Uloz(Obrazok $obrazok, $jedla)
     {
-
+        $stmt = $this->pdo->prepare("insert into semestralna_praca.obrazky(filename, jedly) VALUES (?,?)");
+        $stmt->execute([$obrazok->getCestaKObr(),$jedla]);
     }
 }

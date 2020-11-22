@@ -10,11 +10,13 @@ $clanky = $ulozisko->getVsetko();
 
 if (isset($_GET['delete'])) {
     $ulozisko->vymazPrispevok($_GET['delete']);
+    header("Location:?c=Editacia.php");
 }
 
 if (isset($_GET['edit'])) {
     $ulozisko->upravClanok($_GET['edit']);
 }
+
 
 
 ?>
@@ -83,6 +85,31 @@ if (isset($_GET['edit'])) {
         </ul>
     </div>
 </nav>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                <div class="form-group">
+                    <label>Titulok</label><br>
+                    <input name="title" type="text" class="form-control" placeholder="Titul" required>
+                </div>
+                <div class="form-group">
+                    <label>Text článku</label><br>
+                    <input name="text" type="text" class="form-control" placeholder="Text" required>
+                </div>
+                <label class="jedla" for="jedla">Vyber druh huby:</label><br>
+                <select id="jedla" name="jedla">
+                    <option value="jedla">Jedlé</option>
+                    <option value="jedovata">Jedovaté</option>
+                </select><br>
+                <br>
+                <input type="submit" value="Odoslať">
+            </form>
+        </div>
+    </div>
+</div>
 
 
 <div class="container">
