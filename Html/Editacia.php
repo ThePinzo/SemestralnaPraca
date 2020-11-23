@@ -30,16 +30,22 @@ if (isset($_GET['edit'])) {
     $text = $row['text'];
 }
 
-if (isset($_POST['update'])) {
-    $id = $_POST['id'];
-    $title = $_POST['title'];
-    $text = $_POST['text'];
-    $jedla = $_POST['jedla'];
 
-    $pdo->query("UPDATE semestralna_praca.clanky SET title='$title', text='$text', jedla='$jedla' where id=$id  ");
-    header("Location:Editacia.php");
+$pattern = "/^\s{2,}$/";
+if ($_POST != null) {
+    if (preg_match($pattern, $_POST['title']) == 1 || $_POST['title'] == " " || preg_match($pattern, $_POST['text']) == 1 || $_POST['text'] == " ") {
+        echo '<script type="text/javascript">
+          window.onload = function () { alert("Prosím vyplň titulolk/text!"); } </script>';
+    } elseif (isset($_POST['update'])) {
+        $id = $_POST['id'];
+        $title = $_POST['title'];
+        $text = $_POST['text'];
+        $jedla = $_POST['jedla'];
+
+        $pdo->query("UPDATE semestralna_praca.clanky SET title='$title', text='$text', jedla='$jedla' where id=$id  ");
+        header("Location:Editacia.php");
+    }
 }
-
 
 ?>
 <html lang="sk">
@@ -126,7 +132,7 @@ if (isset($_POST['update'])) {
                            required>
                 </div>
                 <label class="jedla" for="jedla">Vyber druh huby:</label><br>
-                <select  id="jedla" name="jedla">
+                <select id="jedla" name="jedla">
                     <option value="jedla">Jedlé</option>
                     <option value="jedovata">Jedovaté</option>
 
