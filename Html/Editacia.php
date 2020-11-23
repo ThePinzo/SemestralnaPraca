@@ -126,9 +126,10 @@ if (isset($_POST['update'])) {
                            required>
                 </div>
                 <label class="jedla" for="jedla">Vyber druh huby:</label><br>
-                <select id="jedla" name="jedla">
+                <select  id="jedla" name="jedla">
                     <option value="jedla">Jedlé</option>
                     <option value="jedovata">Jedovaté</option>
+
                 </select><br>
                 <br>
                 <?php
