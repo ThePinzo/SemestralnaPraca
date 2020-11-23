@@ -2,7 +2,6 @@
 <?php
 require "AUlozisko.php";
 require "DBUlozisko.php";
-require "CSVUlozisko.php";
 
 $ulozisko = new DBUlozisko();
 $clanky = $ulozisko->getVsetko();
@@ -118,12 +117,12 @@ if (isset($_POST['update'])) {
                 <div class="form-group">
 
                     <label>Titulok</label><br>
-                    <input name="title" type="text" class="form-control" value=" <?php echo $title; ?>"
+                    <input name="title" type="text" class="form-control" value="<?php echo $title; ?>"
                            placeholder="Titul" required>
                 </div>
                 <div class="form-group">
                     <label>Text článku</label><br>
-                    <input name="text" type="text" class="form-control" value=" <?php echo $text; ?>" placeholder="Text"
+                    <input name="text" type="text" class="form-control" value="<?php echo $text; ?>" placeholder="Text"
                            required>
                 </div>
                 <label class="jedla" for="jedla">Vyber druh huby:</label><br>

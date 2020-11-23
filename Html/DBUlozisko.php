@@ -60,10 +60,4 @@ class DBUlozisko extends AUlozisko
         return $res;
     }
 
-    public function upravClanok($id): void
-    {
-
-
-
-    }
 }

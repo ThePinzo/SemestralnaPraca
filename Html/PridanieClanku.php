@@ -4,15 +4,12 @@ require "AUlozisko.php";
 require "DBUlozisko.php";
 $DbUlozisko = new DBUlozisko();
 
-//if(isset($_POST['title']) && $_POST['title'] != ''){
-//    echo "pepekek";
-//}
-
 
 $pattern = "/^\s{2,}$/";
 if ($_POST != null) {
-    if (preg_match($pattern, $_POST['title']) == 1 || $_POST['title'] == " ") {
-        echo "yoo";
+    if (preg_match($pattern, $_POST['title']) == 1 || $_POST['title'] == " " || preg_match($pattern, $_POST['text']) == 1 || $_POST['text'] == " ") {
+        echo '<script type="text/javascript">
+          window.onload = function () { alert("Prosím vyplň titulolk/text!"); } </script>';
     } elseif (isset($_POST['title'])) {
         $DbUlozisko->vytvorPrispevok($_POST['title'], $_POST['text'], $_POST['jedla']);
     }

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 require  "AUlozisko.php";
-require "CSVUlozisko.php";
 require "DBUlozisko.php";
 $ulozisko = new DBUlozisko();
 $clanky = $ulozisko->getJedle("jedovata");
